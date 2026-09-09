@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colegio_Nuestra_Señora_De_Fatima</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="styles.css">
+  <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="logo_Negativo.png" alt="logo oficial">
+    </div>
+
+    <div class="section">
+      <div class="buscador">
+        <input type="text" placeholder="Buscar...">
+      </div>
+
+
+
+
+      <ul class="menu">
+        <li> <a href="../index.html">Home</a></li>
+        <li> <a href="../elColegio/Elcolegio.html">El Colegio</a></li>
+        <li> <a href="../Admisiones/Admisiones.html">Admisiones</a></li>
+        <li> <a href="../propuesta/propuestaEducativa.html">Propuesta Educativa</a></li>
+        <li> <a href="../servicios/servicio.html">Servicios</a></li>
+        <li> <a href="../contacto/contacto.html">Contactenos</a></li>
+        <li><a href="../Sesion/InicioDeSesion.html"> Inicio de sesion</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="login-section">
+      <h2>Iniciar sesión</h2>
+      <form class="login-form" id="loginForm">
+        <label class="usuario"><input type="radio" name="tipo" checked> Alumno</label>
+        <label class="usuario"><input type="radio" name="tipo"> Acudiente</label>
+        <label class="usuario"><input type="radio" name="tipo"> Maestro</label><br><br>
+
+        <input type="text" id="correo" placeholder="Nombre de usuario">
+        <i class='bx bxs-user'></i>
+        <input type="password" id="password" placeholder="Contraseña">
+        <i class='bx bxs-lock-alt'></i>
+
+
+        <label><input type="checkbox"> Recordarme</label>
+        <a href="#">¿Olvidaste tu contraseña?</a><br><br>
+
+        <button type="submit">Ingresar</button>
+        <br>
+        <br>
+        <br>
+        <p>¿Todavía no tienes una cuenta?
+          <a href="#" id="abrirRegistro">Regístrate</a>
+        </p>
+      </form>
+    </section>
+  </main>
+  <div id="modalRegistro" class="modal-registro">
+
+    <div class="registro-contenedor">
+
+      <button type="button" id="cerrarRegistro" class="cerrar-registro">
+        ×
+      </button>
+
+      <h2>Crear cuenta</h2>
+
+      <form id="formularioRegistro">
+
+        <input type="text" id="registroNombre" placeholder="Nombre completo" required>
+
+        <input type="email" id="registroCorreo" placeholder="Correo electrónico" required>
+
+        <input type="password" id="registroPassword" placeholder="Contraseña" required>
+
+        <input type="password" id="registroConfirmarPassword" placeholder="Confirmar contraseña" required>
+
+        <select id="registroRol">
+          <option value="Estudiante">Alumno</option>
+          <option value="Acudiente">Acudiente</option>
+          <option value="Docente">Maestro</option>
+        </select>
+
+        <button type="submit">
+          Registrarme
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+  <script src="login.js"></script>
+</body>
+
+</html>
