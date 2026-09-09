@@ -128,7 +128,7 @@ if (formularioRegistro) {
             return;
 
         }
-
+        console.log("Enviando usuario al backend...");
 
         try {
 
@@ -152,6 +152,7 @@ if (formularioRegistro) {
 
             const datos = await respuesta.json();
 
+            console.log("Respuesta del servidor:", datos);
 
             if (!respuesta.ok) {
 
