@@ -11,21 +11,36 @@ const obtenerUsuarios = (callback) => {
 };
 
 // Crear un usuario
+// Crear un usuario
 const crearUsuario = (usuario, callback) => {
+
     const sql = `
-        INSERT INTO usuarios (nombre, correo, password, rol)
-        VALUES (?, ?, ?, ?)
+        INSERT INTO usuarios
+        (nombre, correo, password, rol, rol_id)
+        VALUES (?, ?, ?, ?, ?)
     `;
 
     db.query(
         sql,
-        [usuario.nombre, usuario.correo, usuario.password, usuario.rol],
+        [
+            usuario.nombre,
+            usuario.correo,
+            usuario.password,
+            usuario.rol,
+            usuario.rol_id
+        ],
         (error, resultado) => {
-            if (error) return callback(error);
+
+            if (error) {
+                return callback(error);
+            }
+
             callback(null, resultado);
+
         }
     );
 };
+
 const eliminarUsuario = (id, callback) => {
     const sql = "DELETE FROM usuarios WHERE id = ?";
 
@@ -59,7 +74,29 @@ const actualizarUsuario = (id, usuario, callback) => {
 // Exportar funciones
 module.exports = {
     obtenerUsuarios,
+    obtenerRolPorNombre,
     crearUsuario,
     actualizarUsuario,
     eliminarUsuario
+};
+
+// Obtener un rol por su nombre
+const obtenerRolPorNombre = (nombreRol, callback) => {
+
+    const sql = `
+        SELECT id
+        FROM roles
+        WHERE nombre = ?
+    `;
+
+    db.query(sql, [nombreRol], (error, resultados) => {
+
+        if (error) {
+            return callback(error);
+        }
+
+        callback(null, resultados);
+
+    });
+
 };
